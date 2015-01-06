@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script>
+			function CarDoor(options){
+				this.color = options.color || 'red';
+				this.side = options.side || 'right';
+				this.powerWindows = options.powerWindows || false;
+			}
+			function CarSeat(options){
+				this.color = options.color || 'red';
+				this.seatType = options.seatType || 'leather';
+			}
+			function CarPartFactory(){
+				var parentClass = null;
+				function createCarPart(options){
+					if(options.type == 'CarSeat'){
+						parentClass = CarSeat;
+					}else{
+						parentClass = CarDoor;
+					}
+					return new parentClass(options);
+				}
+				return{
+					createPart : createCarPart // facade pattern as we're masking the internal function "createCarPart"
+				}
+			}
+			var seat = new CarPartFactory();
+			var options = {
+					type : 'CarSeat',
+					color :'white',
+					seatType: 'leather'
+				};
+			var obj = seat.createPart(options);
+			console.log(obj.color);
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
