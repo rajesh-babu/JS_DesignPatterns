@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8" >
+	<script type="text/javascript">
+		(function(window, undefined){
+			function MyModule(){
+				var v1 = 10;
+				this.getValue = function(){
+					return v1;
+				}
+			}
+			window.MyModule = MyModule;
+		})(window);
+		var myModule = new MyModule();
+		console.log(myModule.getValue());
+	</script>
+	<style>
+	</style>
+	
+</head>
+<body>
+</body>
+</html>
