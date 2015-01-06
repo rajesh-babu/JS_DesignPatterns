@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8" >
+	<script type="text/javascript">
+		var Singleton = (function(){
+			var instance = null;
+			function privateConstructor(){
+				this.v1 = 10;
+			}
+			if(instance == null){
+				instance = new privateConstructor();
+			}
+			return {
+				getInstance : function(){
+					return instance;
+				}
+			}
+		})();
+		var model = Singleton.getInstance();
+		console.log(model.v1);
+
+	</script>
+	<style>
+	</style>
+	
+</head>
+<body>
+</body>
+</html>
